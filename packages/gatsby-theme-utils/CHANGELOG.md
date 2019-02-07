@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.4 (2019-02-07)
+
+
+### Features
+
+* initial commit ([0204fd3](https://github.com/DSchau/gatsby-themes/commit/0204fd3))
+
+
+
+
+
 ## [0.0.3](https://github.com/DSchau/gatsby-theme-utils/compare/@dschau/gatsby-theme-utils@0.0.2...@dschau/gatsby-theme-utils@0.0.3) (2018-12-28)
 
 ### Bug Fixes
