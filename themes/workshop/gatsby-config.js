@@ -62,7 +62,7 @@ module.exports = function gatsbyConfig({ content }) {
           background_color: `#663399`,
           theme_color: `#663399`,
           display: `minimal-ui`,
-          icon: require.resolve(`src/images/gatsby-icon.png`)
+          icon: require.resolve(`./src/images/gatsby-icon.png`)
         },
       },
       {
