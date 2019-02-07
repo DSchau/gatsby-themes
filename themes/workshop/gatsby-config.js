@@ -1,7 +1,6 @@
 const path = require(`path`);
 
 module.exports = function gatsbyConfig({ content }) {
-  console.log('GOT HEREEEEE', content);
   return {
     siteMetadata: {
       title: `Your Great Workshop`,
@@ -11,7 +10,12 @@ module.exports = function gatsbyConfig({ content }) {
     plugins: [
       `gatsby-plugin-react-helmet`,
       `gatsby-plugin-emotion`,
-      `gatsby-plugin-layout`,
+      {
+        resolve: `gatsby-plugin-layout`,
+        options: {
+          component: require.resolve(`./src/layouts/index.js`)
+        }
+      },
       {
         resolve: `gatsby-plugin-typography`,
         options: {
@@ -58,7 +62,7 @@ module.exports = function gatsbyConfig({ content }) {
           background_color: `#663399`,
           theme_color: `#663399`,
           display: `minimal-ui`,
-          icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+          icon: require.resolve(`src/images/gatsby-icon.png`)
         },
       },
       {
