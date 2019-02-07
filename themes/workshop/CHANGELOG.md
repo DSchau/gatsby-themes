@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.5](https://github.com/dschau/gatsby-themes/compare/@dschau/gatsby-theme-workshop@0.0.4...@dschau/gatsby-theme-workshop@0.0.5) (2019-02-07)
+
+**Note:** Version bump only for package @dschau/gatsby-theme-workshop
+
+
+
+
+
 ## [0.0.4](https://github.com/dschau/gatsby-themes/compare/@dschau/gatsby-theme-workshop@0.0.3...@dschau/gatsby-theme-workshop@0.0.4) (2019-02-07)
 
 **Note:** Version bump only for package @dschau/gatsby-theme-workshop

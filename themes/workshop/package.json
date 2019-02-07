@@ -1,7 +1,7 @@
 {
   "name": "@dschau/gatsby-theme-workshop",
   "description": "A reusable theme for a Gatsby workshop powered by MDX",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Dustin Schau <dustin@gatsbyjs.com>",
   "keywords": [
     "gatsby",
