@@ -1,7 +1,7 @@
 {
   "name": "@dschau/gatsby-theme-workshop",
   "description": "A reusable theme for a Gatsby workshop powered by MDX",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Dustin Schau <dustin@gatsbyjs.com>",
   "keywords": [
     "gatsby",
@@ -14,8 +14,8 @@
   ],
   "main": "n/a",
   "dependencies": {
-    "@dschau/gatsby-theme-utils": "^0.0.4",
-    "@dschau/sidebar": "^0.0.6",
+    "@dschau/gatsby-theme-utils": "^0.0.5",
+    "@dschau/sidebar": "^0.0.7",
     "@emotion/core": "^10.0.6",
     "@emotion/styled": "^10.0.6",
     "@mdx-js/mdx": "^0.16.6",

@@ -1,6 +1,6 @@
 {
   "name": "@dschau/gatsby-theme-utils",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "index.js",
   "author": "Dustin Schau <dustinschau@gmail.com> (https://dustinschau.com)",
   "license": "MIT",
