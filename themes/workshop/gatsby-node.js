@@ -50,7 +50,13 @@ exports.createPages = async function createPages({
         }
       }
 
-      allMdx(filter: { lab: { eq: false } } }) {
+      allMdx(filter:{
+        fields:{
+          lab:{
+            eq:false
+          }
+        }
+      }) {
         edges {
           node {
             fields {
