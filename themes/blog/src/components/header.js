@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Link, StaticQuery, graphql } from 'gatsby'
+import React, { useEffect, useState } from 'react'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
 
 import NavigationButton from './navigation-button'
@@ -106,88 +106,67 @@ const BackContainer = styled.div`
   left: 0;
 `
 
-class BlogHeader extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      showBackButton: false,
+function BlogHeader() {
+  const { site: { siteMetadata: { author, subTitle }} } = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          author
+          subTitle
+        }
+      }
     }
-  }
-
-  async componentDidMount() {
-    this.setState({
-      showBackButton: document.referrer.match('dustinschau'),
-    })
-
-    this.Particles = await import(/* webpackChunkName: "dschau/particles.js" */ '@dschau/particles.js').then(
+  `)
+  const [showBackButton, setShowBackButton] = useState(false)
+  useEffect(async () => {
+    setShowBackButton(document.referrer.match('dustinschau'))
+    const Particles = await import(/* webpackChunkName: "dschau/particles.js" */ '@dschau/particles.js').then(
       ({ default: Particles }) => Particles
     )
 
-    this.Particles('blog-header', particlesConfig)
-  }
+    Particles(`blog-header`, particlesConfig)
+  }, [])
 
-  render() {
-    const { showBackButton } = this.state
-    return (
-      <StaticQuery
-        query={graphql`
-          {
-            site {
-              siteMetadata {
-                author
-                title
-              }
-            }
-          }
-        `}
-        render={data => {
-          const { author, title } = data.site.siteMetadata
-          const name = author.split(' ')
-          return (
-            <Header id="blog-header" {...this.props}>
-              {showBackButton && (
-                <BackContainer>
-                  <NavigationButton
-                    to="https://www.dustinschau.com"
-                    absolute
-                    prev
-                    target="_self"
-                  >
-                    Back to Home
-                  </NavigationButton>
-                </BackContainer>
-              )}
-              <Name className="name">
-                <StyledLink to="/">
-                  {name.map((part, index) => {
-                    const Wrapper = index === 0 ? First : Last
-                    return (
-                      <Wrapper
-                        key={part}
-                        css={
-                          index === 0 && name.length > 1
-                            ? {
-                                paddingRight: '2vw',
-                              }
-                            : {}
-                        }
-                      >
-                        {part.split('').map((letter, index) => (
-                          <Letter key={`${letter}-${index}`}>{letter}</Letter>
-                        ))}
-                      </Wrapper>
-                    )
-                  })}
-                </StyledLink>
-              </Name>
-              {title && <Subtitle as="h2">{title}</Subtitle>}
-            </Header>
-          )
-        }}
-      />
-    )
-  }
+  const name = author.split(' ')
+  return (
+    <Header id="blog-header" {...this.props}>
+      {showBackButton && (
+        <BackContainer>
+          <NavigationButton
+            to="https://www.dustinschau.com"
+            absolute
+            prev
+            target="_self"
+          >
+            Back to Home
+          </NavigationButton>
+        </BackContainer>
+      )}
+      <Name className="name">
+        <StyledLink to="/">
+          {name.map((part, index) => {
+            const Wrapper = index === 0 ? First : Last
+            return (
+              <Wrapper
+                key={part}
+                css={
+                  index === 0 && name.length > 1
+                    ? {
+                        paddingRight: '2vw',
+                      }
+                    : {}
+                }
+              >
+                {part.split('').map((letter, index) => (
+                  <Letter key={`${letter}-${index}`}>{letter}</Letter>
+                ))}
+              </Wrapper>
+            )
+          })}
+        </StyledLink>
+      </Name>
+      {subTitle && <Subtitle as="h2">{subTitle}</Subtitle>}
+    </Header>
+  )
 }
-
 export default BlogHeader

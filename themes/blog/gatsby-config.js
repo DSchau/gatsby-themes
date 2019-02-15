@@ -7,7 +7,7 @@ module.exports = function themeConfig({
   return {
     siteMetadata: {
       title: 'Insert title here',
-      subTitle: null,
+      subTitle: '',
       description: 'Your great blog',
       author: 'Your name',
       siteUrl: 'https://yoursiteurl.com',
