@@ -106,7 +106,7 @@ const BackContainer = styled.div`
   left: 0;
 `
 
-function BlogHeader() {
+function BlogHeader(props) {
   const { site: { siteMetadata: { author, subTitle }} } = useStaticQuery(graphql`
     {
       site {
@@ -129,7 +129,7 @@ function BlogHeader() {
 
   const name = author.split(' ')
   return (
-    <Header id="blog-header" {...this.props}>
+    <Header id="blog-header" {...props}>
       {showBackButton && (
         <BackContainer>
           <NavigationButton
